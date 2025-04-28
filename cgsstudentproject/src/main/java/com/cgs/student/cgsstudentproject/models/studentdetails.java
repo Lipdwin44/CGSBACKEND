@@ -74,16 +74,16 @@ public class studentdetails {
     public String domain;
     public String first_name;
     public String last_name;
+    public String residential_address;
+    public String permanent_address;
 
-    public String getRole() {
-        return role;
+    public String getPin_code() {
+        return pin_code;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setPin_code(String pin_code) {
+        this.pin_code = pin_code;
     }
-
-    public String role;
 
     @Override
     public String toString() {
@@ -95,9 +95,49 @@ public class studentdetails {
                 ", domain='" + domain + '\'' +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
+                ", residential_address='" + residential_address + '\'' +
+                ", permanent_address='" + permanent_address + '\'' +
+                ", pin_code='" + pin_code + '\'' +
+                ", role='" + role + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    public String pin_code;
+
+    public String getPincode() {
+        return pin_code;
+    }
+
+    public void setPincode(String pincode) {
+        this.pin_code = pincode;
+    }
+
+    public String getPermanent_address() {
+        return permanent_address;
+    }
+
+    public void setPermanent_address(String permanent_address) {
+        this.permanent_address = permanent_address;
+    }
+
+    public String getResidential_address() {
+        return residential_address;
+    }
+
+    public void setResidential_address(String residential_address) {
+        this.residential_address = residential_address;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String role;
 
     public String getPassword() {
         return password;
