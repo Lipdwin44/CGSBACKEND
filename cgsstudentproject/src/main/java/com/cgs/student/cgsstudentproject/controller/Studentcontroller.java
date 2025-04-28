@@ -1,10 +1,12 @@
 package com.cgs.student.cgsstudentproject.controller;
 
 import com.cgs.student.cgsstudentproject.Repo.student_repo;
+import com.cgs.student.cgsstudentproject.models.StudentSimpleDTO;
 import com.cgs.student.cgsstudentproject.models.studentdetails;
 import com.cgs.student.cgsstudentproject.services.StudentDetailsService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -27,8 +29,6 @@ public class Studentcontroller {
 
     @Autowired
     private StudentDetailsService studentService;
-
-    // ✅ Student registration
     @PostMapping("/register")
     public ResponseEntity<String> registerStudent(@RequestBody studentdetails st) {
         if (st.getStudentname() == null ||
@@ -64,6 +64,12 @@ public class Studentcontroller {
     @GetMapping("/count")
     public int getTotalStudents() {
         return studentService.getTotalStudents();
+    }
+
+
+    @GetMapping("/domain/{domain}")
+    public List<StudentSimpleDTO> getStudentsByDomain(@PathVariable String domain) {
+        return studentService.getStudentsByDomain(domain);
     }
 }
 
