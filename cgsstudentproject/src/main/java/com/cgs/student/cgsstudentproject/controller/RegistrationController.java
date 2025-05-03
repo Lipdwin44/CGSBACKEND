@@ -105,11 +105,14 @@ public class RegistrationController {
         String email = studentRequest.getEmail();
         String contact_no = studentRequest.getContact_no();
         String domain = studentRequest.getDomain();
+        String residential_address = studentRequest.getResidential_address();
+        String permanent_address = studentRequest.getPermanent_address();
+        String pin_code = studentRequest.getPin_code();
+        String role = studentRequest.getRole();
 
         String username = RegistrationUtil.generateUsername(first_name, last_name);
         String rawPassword = RegistrationUtil.generatePassword(first_name, last_name);
         String encryptedPassword = passwordEncoder.encode(rawPassword);
-
         studentdetails student = new studentdetails();
         student.setStudentname(username);
         student.setPassword(encryptedPassword);
@@ -118,19 +121,23 @@ public class RegistrationController {
         student.setFirst_name(first_name);
         student.setLast_name(last_name);
         student.setDomain(domain);
+        student.setResidential_address(residential_address);
+        student.setPermanent_address(permanent_address);
+        student.setPin_code(pin_code);
+        student.setRole(role);
         student_repo.save(student);
 
         String subject = "Registration Confirmation -CGS Pvt. Ltd.";
         String message = "<html><body>" +
                 "<p>Dear " + escapeHtml(first_name) + ",</p>" +
-                "<p>We are pleased to inform you that your registration with Sygnus TechLabs Pvt. Ltd. has been successfully completed. Below are your account details:</p>" +
+                "<p>We are pleased to inform you that your registration with  codesight global solutions  Pvt. Ltd. has been successfully completed. Below are your account details:</p>" +
                 "<p><strong>Username:</strong> " + escapeHtml(username) + "<br>" +
                 "<strong>Password:</strong> " + escapeHtml(rawPassword) + "</p>" +
                 "<p>Please change your password upon first login.</p>" +
-                "<p>Regards,<br>Sygnus TechLabs Team</p>" +
+                "<p>Regards,<br>codesight global solutions</p>" +
                 "</body></html>";
 
-        boolean emailSent = sendEmailService.sendEmailToRecipient(first_name, subject, message);
+        boolean emailSent = sendEmailService.sendEmailToRecipient(email, subject, message);
 
         if (emailSent) {
             String responseMessage = "Registration successful! Username: " + username + ", Password: " + rawPassword;

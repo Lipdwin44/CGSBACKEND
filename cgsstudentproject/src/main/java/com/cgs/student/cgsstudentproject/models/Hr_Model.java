@@ -75,4 +75,6 @@ public class Hr_Model {
     public String Hr_email;
     public String Hr_number;
     public String job_desc;
+
+
 }
