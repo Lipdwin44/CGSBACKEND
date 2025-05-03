@@ -1,6 +1,9 @@
 package com.cgs.student.cgsstudentproject.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Student_details")
@@ -64,7 +67,6 @@ public class studentdetails {
     }
 
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
@@ -76,6 +78,50 @@ public class studentdetails {
     public String last_name;
     public String residential_address;
     public String permanent_address;
+    public boolean is_offer_accept;
+    @CreationTimestamp
+    private LocalDateTime createdDate;
+    private LocalDateTime offerAcceptedDate;
+
+    public LocalDateTime getOfferRejectedDate() {
+        return offerRejectedDate;
+    }
+
+    public void setOfferRejectedDate(LocalDateTime offerRejectedDate) {
+        this.offerRejectedDate = offerRejectedDate;
+    }
+
+    public LocalDateTime getOfferAcceptedDate() {
+        return offerAcceptedDate;
+    }
+
+    public void setOfferAcceptedDate(LocalDateTime offerAcceptedDate) {
+        this.offerAcceptedDate = offerAcceptedDate;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public boolean isIs_offer_accept() {
+        return is_offer_accept;
+    }
+
+    public void setIs_offer_accept(boolean is_offer_accept) {
+        this.is_offer_accept = is_offer_accept;
+    }
+
+    private LocalDateTime offerRejectedDate;
+
+
+
+
+
+
 
     public String getPin_code() {
         return pin_code;
@@ -85,23 +131,7 @@ public class studentdetails {
         this.pin_code = pin_code;
     }
 
-    @Override
-    public String toString() {
-        return "studentdetails{" +
-                "id=" + id +
-                ", studentname='" + studentname + '\'' +
-                ", email='" + email + '\'' +
-                ", contact_no='" + contact_no + '\'' +
-                ", domain='" + domain + '\'' +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", residential_address='" + residential_address + '\'' +
-                ", permanent_address='" + permanent_address + '\'' +
-                ", pin_code='" + pin_code + '\'' +
-                ", role='" + role + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+
 
     public String pin_code;
 
@@ -149,8 +179,28 @@ public class studentdetails {
 
     public String password;
 
-
+    @Override
+    public String toString() {
+        return "studentdetails{" +
+                "id=" + id +
+                ", studentname='" + studentname + '\'' +
+                ", email='" + email + '\'' +
+                ", contact_no='" + contact_no + '\'' +
+                ", domain='" + domain + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", residential_address='" + residential_address + '\'' +
+                ", permanent_address='" + permanent_address + '\'' +
+                ", is_offer_accept=" + is_offer_accept +
+                ", createdDate=" + createdDate +
+                ", offerAcceptedDate=" + offerAcceptedDate +
+                ", offerRejectedDate=" + offerRejectedDate +
+                ", pin_code='" + pin_code + '\'' +
+                ", role='" + role + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
+}
 
 
 

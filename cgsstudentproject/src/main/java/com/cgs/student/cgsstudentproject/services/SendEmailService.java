@@ -29,7 +29,7 @@ public class SendEmailService {
             helper.setText(message, true);
 
             // Add inline image
-            URL imageUrl = new URL("https://img1.wsimg.com/isteam/ip/d7e802a8-158d-42ab-86a7-ff9335df0285/SYGNUS%20LOGO%20test.jpg/:/rs=w:145,h:49,cg:true,m/cr=w:145,h:49/qt=q:95");
+            URL imageUrl = new URL("https://media.licdn.com/dms/image/v2/D563DAQHzHjhRAyjGlA/image-scale_191_1128/image-scale_191_1128/0/1679394811361/codesightglobalsolutions_cover?e=2147483647&v=beta&t=Xy98IeGQ-szM9JjvuDgbje2cnBaCGJil1R51YLrRxg4");
             URLDataSource urlDataSource = new URLDataSource(imageUrl);
 
             helper.addInline("image1", urlDataSource);
